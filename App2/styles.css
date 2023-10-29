@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+#notes-list {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#note-details {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#create-note {
+    background-color: #fff;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
