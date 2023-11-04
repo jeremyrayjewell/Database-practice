@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.5.2/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.5.2/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.5.2/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js"></script>
+
+  </head>
+  <body>
+    <img src="logo.png" alt="">
+    <div class="welcome">
+      <h1 id="english">Welcome</h1>
+      <h1 id="spanish">Bienvenidos</h1>
+    </div>
+    <div class="welcome">
+      <h3 id="english">To Jeremy's First Google Authentication App</h3>
+      <h3 id="spanish">a la primera aplicación de autenticación de Google de Jeremy</h3>
+    </div>
+    <button onclick="googleLogin()">Login with Google <br> Iniciar sesión con Google</button>
+
+    
+    <script src="app.js"></script>
+  </body>
+</html>
