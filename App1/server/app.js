@@ -1,3 +1,41 @@
+require('dotenv').config(); // Load environment variables from a .env file
+
+function connect(config) {
+  // Implement your own connection logic here using the 'config' object
+  // Replace this with your actual database connection logic
+  return {
+    execute: function (query, params) {
+      // Implement your execution logic here
+      // Replace this with your actual database query execution logic
+      return new Promise((resolve, reject) => {
+        // Simulate a query execution
+        setTimeout(() => {
+          console.log('Executing query:', query, 'with parameters:', params);
+          resolve({ rows: [{ result: 1 }] });
+        }, 1000);
+      });
+    },
+  };
+}
+
+const config = {
+  host: process.env.DATABASE_HOST,
+  username: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD,
+};
+
+(async function () {
+  try {
+    const conn = connect(config);
+    const results = await conn.execute('select 1 from dual where 1=?', [1]);
+    console.log('Results:', results);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+})();
+
+//Rest of code
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -70,25 +108,3 @@ app.get('/search/:name', (request, response) => {
 })
 
 app.listen(process.env.PORT, () => console.log('app is running'));
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCI-X4GHvrQXaXydaZk-cdqOqb_eYhGqkM",
-  authDomain: "test-76563.firebaseapp.com",
-  projectId: "test-76563",
-  storageBucket: "test-76563.appspot.com",
-  messagingSenderId: "982066285000",
-  appId: "1:982066285000:web:90d20aa508bcc28d5e98fd",
-  measurementId: "G-EHYY708BR5"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
