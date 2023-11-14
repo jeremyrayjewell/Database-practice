@@ -36,9 +36,29 @@ input{
     margin: 10px 0;
 }
 
+.note-container {
+    max-width: 210px;
+}
+
+#notes-list {
+    font-size: 20px;
+}
+
+#notes-list #span-name{
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#notes-list #span-date{
+    font-size: 13px;
+    font-style: italic;
+}
+
+
 button{
     color: #FDFDFD;
-    background-color: #AC485A;
+    background-color: #86ac48;
     font-family: 'Rubik', sans-serif;
     border: 0;
     padding: 15px;
@@ -47,4 +67,26 @@ button{
     text-align: center;
     margin: 10px 0;
     cursor: pointer;
+}
+
+.delete-button {
+    width: 16px; 
+    height: 16px; 
+    font-size: 10px;
+    background-color: #AC485A;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    margin: 0px 7px 0px -7px;
+    border-radius: 50%; 
+    display: none;
+    padding: 1px;
+    opacity: 0.5;
+}
+
+
+li:hover .delete-button {
+    display: inline-block; 
 }

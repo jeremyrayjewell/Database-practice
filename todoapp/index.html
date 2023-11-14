@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <head>
-    <title>Add to Cart</title>
+    <title>Jeremy's Message Board</title>
     <link rel="preconnect" href="https://fonts.google.com">
     <link rel="preconnect" href="https://fonsts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h2>To Do List</h2>
+    <h2>Leave Jeremy a Note</h2>
     <div class="container">
         <img src="todoicon.png" alt="">
-        <input type="text" id="input-field" placeholder="What to do?">
+        <input type="text" id="name-field" placeholder="Your name">
+        <input type="text" id="input-field" placeholder="Comment">
         <button id="add-button">Add to list</button>
-        <ul id="notes-list"></ul>
+        <div class="note-container">
+            <ul id="notes-list"></ul>
+        </div>
     </div>
     <script src="functions.js" type="module"></script>
     <script src="index.js" type="module"></script>
