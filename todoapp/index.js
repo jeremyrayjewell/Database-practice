@@ -61,7 +61,7 @@ function renderNotes(note, id) {
     let dateString = date.toLocaleDateString();
 
     
-    noteEl.innerHTML = `${note.note}hahaha <span id="span-name"><code>&#8212;</code>${note.name}</span><span id="span-date">,  ${dateString}</span>`;
+    noteEl.innerHTML = `${note.note} <span id="span-name"><code>&#8212;</code>${note.name}</span><span id="span-date">,  ${dateString}</span>`;
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
