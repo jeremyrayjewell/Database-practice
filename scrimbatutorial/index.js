@@ -1,5 +1,9 @@
 /* === Imports === */
-import { initializeApp } from "firebase/app"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+import { getAuth, 
+    createUserWithEmailAndPassword,
+    sendEmailVerification,
+    signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
 
 /* === Firebase Setup === */
 const firebaseConfig = {
@@ -7,9 +11,12 @@ const firebaseConfig = {
     authDomain: "moody-1961e.firebaseapp.com",
     projectId: "moody-1961e",
     storageBucket: "moody-1961e.appspot.com",
-}
+    messagingSenderId: "588787157721",
+    appId: "1:588787157721:web:2b340fe917e3c49ad50cc8"
+  };
 
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 /* === UI === */
 
@@ -17,6 +24,8 @@ const app = initializeApp(firebaseConfig)
 
 const viewLoggedOut = document.getElementById("logged-out-view")
 const viewLoggedIn = document.getElementById("logged-in-view")
+const appWelcomeEl = document.getElementById("app-welcome")
+const logInNotification = document.getElementById("login-notification") 
 
 const signInWithGoogleButtonEl = document.getElementById("sign-in-with-google-btn")
 
@@ -46,11 +55,40 @@ function authSignInWithGoogle() {
 }
 
 function authSignInWithEmail() {
-    console.log("Sign in with email and password")
+    const email = emailInputEl.value;
+    const password = passwordInputEl.value;
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        showLoggedInView()
+        appWelcomeEl.innerHTML = `Welcome ${user.email}!`
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        logInNotification.innerHTML = `<span>Error ${error.code}: unable to login.</span> <br> Please verify your email and password are correct and belong to an existing account.`      });
 }
 
 function authCreateAccountWithEmail() {
-    console.log("Sign up with email and password")
+    const email = emailInputEl.value;
+    const password = passwordInputEl.value;
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // Send email verification
+            sendEmailVerification(user)
+        .then(() => {
+            logInNotification.innerHTML = `<span>Please check inbox for ${email}!</span> <br> We have sent you a verification email.😊`});
+            createAccountButtonEl.style.display = "none";
+    })
+    .catch((error) => {
+    // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        logInNotification.innerHTML = `<span>Error ${error.code}: unable to create account. </span> <br> Please verify your email and password are valid for creating an account.`
+    });
 }
 
 /* == Functions - UI Functions == */

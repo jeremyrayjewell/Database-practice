@@ -48,6 +48,24 @@ h1 {
     text-align: center;
 }
 
+#login-notification {
+    font-family: var(--primary-font);
+    font-size: .8em;
+    text-align: center;
+    color: var(--grey-color);
+}
+
+#login-notification span {
+    color: var(--dark-color);
+    font-style: italic;
+}
+
+#app-welcome {
+    font-family: var(--seconday-font);
+    font-size: 1.5em;
+    text-align: center;
+}
+
 /* === Sections === */
 
 section {
