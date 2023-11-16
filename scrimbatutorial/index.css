@@ -78,6 +78,37 @@ section {
     gap: 1em;
 }
 
+/* === Nav === */
+
+nav {
+    margin: 0.6em 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 1.875em;
+    
+}
+
+.icon-btn img {
+    width: 1.5em;
+    opacity: 0.4;
+    transition: filter 0.3s ease, 
+    opacity 0.3s ease; 
+}
+
+.icon-btn:hover img {
+    filter: invert(0.5);
+    opacity: 0.8;
+}
+
+
 /* === Structure === */
 
 .container {
@@ -188,4 +219,5 @@ button:hover {
 
 #logged-in-view {
     display: none;
+    margin: 0;
 }

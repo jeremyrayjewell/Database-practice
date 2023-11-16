@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase
 import { getAuth, 
     createUserWithEmailAndPassword,
     sendEmailVerification,
-    signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
+    signInWithEmailAndPassword,
+    signOut } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
 
 /* === Firebase Setup === */
 const firebaseConfig = {
@@ -35,12 +36,16 @@ const passwordInputEl = document.getElementById("password-input")
 const signInButtonEl = document.getElementById("sign-in-btn")
 const createAccountButtonEl = document.getElementById("create-account-btn")
 
+const signOutButtonEl = document.getElementById("sign-out-btn")
+
 /* == UI - Event Listeners == */
 
 signInWithGoogleButtonEl.addEventListener("click", authSignInWithGoogle)
 
 signInButtonEl.addEventListener("click", authSignInWithEmail)
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
+
+signOutButtonEl.addEventListener("click", authSignOut)
 
 /* === Main Code === */
 
@@ -90,6 +95,15 @@ function authCreateAccountWithEmail() {
         logInNotification.innerHTML = `<span>Error ${error.code}: unable to create account. </span> <br> Please verify your email and password are valid for creating an account.`
     });
 }
+
+function authSignOut() {
+    signOut(auth).then(() => {
+        showLoggedOutView()
+    }).catch((error) => {
+        // An error happened.
+      });
+    }
+
 
 /* == Functions - UI Functions == */
 
